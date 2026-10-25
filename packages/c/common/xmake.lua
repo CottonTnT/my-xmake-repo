@@ -1,6 +1,6 @@
 package("common")
     set_homepage("https://github.com/CottonTnT/common")
-    set_description("Cross-project reusable C++20 utility library: Noncopyable, Singleton, StringUtil (FNV-1a), XType aliases and memory-size literals.")
+    set_description("Cross-project reusable C++20 utility library: Noncopyable, Singleton, StringUtil (FNV-1a), InlineBuffer (SBO), XType aliases and memory-size literals.")
     -- 上游仓库暂无 LICENSE 文件，待补充后请在此设置：set_license("...")
 
     -- 当前实现均为模板 / constexpr 头文件（src/ 预留后续非模板实现），故按纯头文件库安装
@@ -8,7 +8,8 @@ package("common")
 
     -- 以 git 仓库为源（暂无 release tag），版本号指向具体 commit
     add_urls("https://github.com/CottonTnT/common.git")
-    add_versions("2026.10.25", "078bf9cdcde2e0310ecf20cf33e23ce20ab716ab")
+    add_versions("0.1.0", "078bf9cdcde2e0310ecf20cf33e23ce20ab716ab")
+    add_versions("0.2.0", "ef1b098f0eed94d62c5d58445a4bfcb1dd1bb595")
 
     on_install(function (package)
         os.cp("include/*.hpp", package:installdir("include"))
@@ -16,6 +17,7 @@ package("common")
 
     on_test(function (package)
         assert(package:check_cxxsnippets({test = [[
+            #include <InlineBuffer.hpp>
             #include <Singleton.hpp>
             #include <StringUtil.hpp>
             #include <XType.hpp>
@@ -30,6 +32,10 @@ package("common")
                 u64 h = X::StringUtil::hashString("common");
                 (void)h;
                 (void)p;
+
+                X::InlineBuffer<64> buf;
+                buf.append("hello");
+                (void)buf.view();
             }
         ]]}, {configs = {languages = "c++20"}}))
     end)
