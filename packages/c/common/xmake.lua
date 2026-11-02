@@ -10,6 +10,7 @@ package("common")
     add_urls("https://github.com/CottonTnT/common.git")
     add_versions("0.1.0", "078bf9cdcde2e0310ecf20cf33e23ce20ab716ab")
     add_versions("0.2.0", "ef1b098f0eed94d62c5d58445a4bfcb1dd1bb595")
+    add_versions("0.3.0", "7690f003d65315976a8fb8e789f1fd01d6e52bac")
 
     on_install(function (package)
         os.cp("include/*.hpp", package:installdir("include"))
