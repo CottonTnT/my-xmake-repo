@@ -39,4 +39,5 @@ package("common")
         ]]}, {configs = {languages = "c++20"}}))
     end)
 
+    add_versions("0.5.0", "73f184d8c95f9ade1d852ae0a3c1167e10368b57f5854861abc893f10bbfc14f")
 package_end()
