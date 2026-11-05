@@ -7,7 +7,7 @@ package("common")
     set_kind("library", {headeronly = true})
 
     -- 以 git 仓库为源（暂无 release tag），版本号指向具体 commit
-    add_urls("https://github.com/CottonTnT/common.git")
+    add_urls("https://github.com/CottonTnT/common/archive/refs/tags/v${version}.tar.gz")
     add_versions("0.4.0", "7690f003d65315976a8fb8e789f1fd01d6e52bac")
 
     on_install(function (package)
