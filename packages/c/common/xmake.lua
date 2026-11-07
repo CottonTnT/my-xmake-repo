@@ -40,4 +40,5 @@ package("common")
     end)
 
     add_versions("0.5.0", "73f184d8c95f9ade1d852ae0a3c1167e10368b57f5854861abc893f10bbfc14f")
+    add_versions("0.6.0", "6bc1fb4f2709d08bbd8ab63b90df4e25a824fca75b45b77cdb06893b4be427e4")
 package_end()
